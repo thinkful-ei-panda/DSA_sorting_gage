@@ -1,5 +1,6 @@
 const {LinkedList} = require('../../helpers/linkedLists/linkedLists');
 const {STORE} = require('../../helpers/store/store');
+const linkedLists = require('../../helpers/linkedLists/linkedLists');
 
 const {log, largeIntArray, display} = STORE;
 
@@ -51,8 +52,29 @@ const mergeSort = arr => {
 };
 */
 
-const mergeLinkedList = (left, right, arr) => {
+const mergeLinkedList = (left, right,) => {
+  const newList = new LinkedList;
+  while( left && right){
+    if(left.value < right.value) {
+      newList.insertLast(left.value);
+      left = left.next;
+    }
+    else{
+        newList.insertLast(right.value)
+      right = right.next;
+    }
+  }
+  
+  while(left.value){
+    newList.insertLast(left.value)
+    left = left.next;
+  }
 
+  while(right.value){
+    newList.insertLast(right.value)
+    right = right.next; 
+  }
+  return newList ;
 };
 
 const findRightSide = list =>{
@@ -106,9 +128,9 @@ const findLeftSide = list =>{
 };
 
 
-log(display(findLeftSide(makeList())));
+log(sortLinkedList(makeList())));
 
-const splitLinkedList = (list) =>{
+const sortLinkedList = (list) =>{
   if(!list.next) return list;
 
   let left = findLeftSide(list);
@@ -116,6 +138,6 @@ const splitLinkedList = (list) =>{
 
   left = splitLinkedList(list.head = left);
   right = splitLinkedList(list.head = right);
-  return mergeLinkedList(left, right,list)
+  return mergeLinkedList(left, right,list);
 };
 
