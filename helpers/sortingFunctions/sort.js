@@ -62,26 +62,29 @@ const mergeSort = arr => {
 /*================================================================================================================== */
 /*================================================================================================================== */
 
+const quickSort =(arr, start= 0, end= arr.length) => {
+  if (start >= end) return arr;
+
+  const mid = partition(arr,start,end);
+  arr = quickSort(arr,start,mid);
+  arr = quickSort(arr ,mid + 1, end);
+  return arr;
+};
+
+
 const partition = (arr, start, end) => {
   const pivot = arr[end-1];
   let j = start;
   for (let i = start; i < end - 1 ; i++) {
     if (arr[i] <= pivot) {
       swap(arr, i , j );
+      j++;
     }
   }
   swap(arr, end - 1, j);
   return j;
 };
 
-const quickSort =(arr, start=0, end=arr.length) => {
-  if (start >= end) return arr;
-
-  const mid = partition(arr,start,end);
-  arr = quickSort(arr,start,mid);
-  arr = quickSort(arr,mid + 1, end);
-  return arr;
-};
 
 
 module.exports ={
