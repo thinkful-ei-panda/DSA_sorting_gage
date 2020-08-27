@@ -3,12 +3,40 @@ Given the following list of numbers 21, 1, 26, 45, 29, 28, 2, 9, 16, 49, 39, 27,
 
 - What is the resulting list that will be sorted after 3 recursive calls to mergesort?
 
+
+`[21, 1, 26, 45, 29, 28, 2, 9,] `,`[ 16, 49, 39, 27, 43, 34, 46, 40]`
+
+[ [ `[21,1,26,45]`,`[29,28,2,9]` ] , [ `[16,49,39,27]`,` [43,34,46,40]` ]]
+
+[ 
+    [ `[21,1,]`,`[26,45]`,`[29,28]`,`[2,9]` ],
+    [ `[16,49]`,`[39,27]`,`[43,34]`,`[46,40] `]
+]
+
+
+
 - What is the resulting list that will be sorted after 16 recursive calls to mergesort?
+
+`[ 1,  2,  9, 16, 21, 26, 27, 28, 29, 34, 39, 40, 43, 45, 46, 49 ]` ? 
 
 - What are the first 2 lists to be merged?
 
+ 1 & 21 (if you would even call that a list),
+ unless if your talking about, 
+`[ 1,  2,  9, 21, 26, 28, 29, 45]` LEFT
+`[ 16, 27, 34, 39, 40, 43, 46, 49]` RIGHT 
+
 - Which two lists would be merged on the 7th merge?
 
+
+`[1<16]` `[2<16]` `[9<16]` `[21>16]` `[21<27]` `[26<27]` `[28>27]` `[28<34]` `[29<34]` `[45>34]`
+    L       L         L       R          L          L      __R__          L        L          R
+`[45>40]` `[45>43]` `[45<46]` [`...46`, `...49`]
+    R         R         L           ...R...R
+
+`[1,2,9,16,12,27,28]`?
+
+(these questions are kinda confusing on what they're asking for)
 
 <!---->
 ### part 2: Understanding quicksort
