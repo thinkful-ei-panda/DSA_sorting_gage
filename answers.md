@@ -40,6 +40,7 @@ Given the following list of numbers 21, 1, 26, 45, 29, 28, 2, 9, 16, 49, 39, 27,
 
 <!---->
 ### part 2: Understanding quicksort
+![sanic_sorting](/img/sanic.png)
 
 - 1) Suppose you are debugging a quicksort implementation that is supposed to sort an array in ascending order. After the first partition step has been completed, the contents of the array is in the following order: 3 9 1 14 17 24 22 20. Which of the following statements is correct about the partition step? Explain your answer.
 
