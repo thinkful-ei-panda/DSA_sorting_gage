@@ -87,5 +87,5 @@ const quickSort =(arr, start=0, end=arr.length) => {
 module.exports ={
   bubbleSort,
   mergeSort,
-
+  quickSort,
 }; 
