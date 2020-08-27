@@ -1,5 +1,3 @@
-const { lawngreen } = require('color-name');
-
 const swap =(arr,i,j)=>{
   const tmp = arr[i];
   arr[i] = arr[j];

@@ -113,8 +113,48 @@ const partition = (arr, start, end) => {
 ### part 4: Implementing merge sort
 Write a function `mSort` that sorts the dataset above using the merge sort algorithm.
 
+```
+const merge = (left, right, arr) =>{
+  let leftIndex = 0; 
+  let rightIndex = 0;
+  let outputIndex = 0;
+  while(leftIndex < left.length && rightIndex < right.length){
+    if(left[leftIndex] < right[rightIndex]) {
+      arr[outputIndex++] = left[leftIndex++];
+    }
+    else{
+      arr[outputIndex++] = right[rightIndex++];
+    }
+  }
+  for (let i = leftIndex ; i < left.length ; i++){
+    arr[outputIndex++] = left[i];
+  }
+
+  for (let i = rightIndex ; i < right.length ; i++){
+    arr[outputIndex++] = right[i];
+  }
+  return arr;
+};
+
+const mergeSort = arr => {
+  if(arr.length <= 1) return arr;
+
+  const mid = Math.floor(arr.length / 2);
+  let l = arr.slice(0,mid);
+  let r = arr.slice(mid, arr.length);
+	
+  l = mergeSort(l);
+  r = mergeSort(r);
+  return merge(l,r,arr);
+};
+```
+
 ### part 5: Sorting a linked list using merge sort
+
 Given a Linked List, sort the linked list using merge sort. You will need your linked list class from previous lesson to create the list and use all of its supplemental functions to solve this problem.
+
+
+
 
 ### part 6: Bucket sort
 Write an O(n) algorithm to sort an array of integers, where you know in advance what the lowest and highest values are. You can't use `arr.splice()`, `shift()` or `unshift()` for this exercise.
