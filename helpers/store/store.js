@@ -11,6 +11,20 @@ const STORE = {
     28, 13, 17, 69, 90, 1, 6, 7, 64, 43, 9, 73, 80, 98, 46,
     27, 22, 87, 49, 83, 6, 39, 42, 51, 54, 84, 34, 53, 78, 40
   ],
+  display : (head) => {
+    if(head === null){
+      return 'no content in storage';
+    }
+    const nameList ={
+      names : [],
+    };
+    let grabbyBoi = head;
+    while(grabbyBoi){
+      nameList.names.push(grabbyBoi.value);
+      grabbyBoi = grabbyBoi.next;
+    } 
+    return nameList.names;
+  },
 };
 
 module.exports = {STORE};

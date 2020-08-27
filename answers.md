@@ -154,8 +154,6 @@ const mergeSort = arr => {
 Given a Linked List, sort the linked list using merge sort. You will need your linked list class from previous lesson to create the list and use all of its supplemental functions to solve this problem.
 
 
-
-
 ### part 6: Bucket sort
 Write an O(n) algorithm to sort an array of integers, where you know in advance what the lowest and highest values are. You can't use `arr.splice()`, `shift()` or `unshift()` for this exercise.
 
