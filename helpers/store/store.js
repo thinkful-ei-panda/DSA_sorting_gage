@@ -18,7 +18,7 @@ const STORE = {
     const nameList ={
       names : [],
     };
-    let grabbyBoi = head;
+    let grabbyBoi = head.head;
     while(grabbyBoi){
       nameList.names.push(grabbyBoi.value);
       grabbyBoi = grabbyBoi.next;
