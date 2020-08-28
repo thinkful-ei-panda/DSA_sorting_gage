@@ -153,15 +153,129 @@ const mergeSort = arr => {
 
 Given a Linked List, sort the linked list using merge sort. You will need your linked list class from previous lesson to create the list and use all of its supplemental functions to solve this problem.
 
+`this was cancer`
+
+```
+const mergeSortedList = (left, right ) => {
+ 
+  let res = new LinkedList;
+  let curLeft = left.head;
+  let curRight = right.head;
+
+  while (curLeft && curRight) {
+    if(curLeft.value <= curRight.value){
+      res.insertLast(curLeft.value);
+      curLeft = curLeft.next;
+    }
+    else {
+      res.insertLast(curRight.value);
+      curRight = curRight.next;
+    }
+  }
+
+  while(curLeft){
+    res.insertLast(curLeft.value);
+    curLeft = curLeft.next;  
+  }
+  while(curRight){
+    res.insertLast(curRight.value);
+    curRight = curRight.next;  
+  }
+  return res;
+};
+
+
+
+const listSplit = (list, left, right) =>{
+
+  let curNode = list.head;
+  if (curNode === null)return; 
+  const resList = new LinkedList;
+  let i = 0;
+  while (curNode){
+    if( i >= left && i < right) {
+      resList.insertLast(curNode.value);
+    }
+    i++;
+    curNode = curNode.next;
+  }
+  return resList;
+};
+
+
+
+const sortLinkedList = (list) =>{
+    
+  let curNode  = list.head;
+  if (curNode.next === null) return list;
+
+  let length = 1;
+  while(curNode.next !== null) {
+    length++;
+    curNode = curNode.next;
+  }
+  const midIndex = Math.floor(length/2);
+  
+  let left = listSplit(list, 0, midIndex);
+  let right = listSplit(list, midIndex, length);
+
+  left = sortLinkedList(left);
+  right = sortLinkedList(right);
+
+  return mergeSortedList(left, right);
+};
+```
+
 ### part 6: Bucket sort
 Write an O(n) algorithm to sort an array of integers, where you know in advance what the lowest and highest values are. You can't use `arr.splice()`, `shift()` or `unshift()` for this exercise.
+
+```
+const bucketSearch = (arr , min, max) =>{
+
+  const numMap = new Map();
+  for (let i=0; i< arr.length; i++) {
+    if (numMap.get(arr[i]) === undefined) {
+      numMap.set(arr[i], 1);
+    }
+    else {
+      numMap.set(arr[i], numMap.get(arr[i])+1);
+    }
+  }
+
+  let arrI = 0;
+  for (let i = min; i <= max; i++) {
+    let numAppearing = numMap.get(i);
+    while (numAppearing) {
+      arr[arrI] = i;
+      numAppearing--;
+      arrI++;
+    }
+  }
+  return arr;  
+      
+};
+```
 
 
 ### part 7: Sort in place
 Write an algorithm to shuffle an array into a random order in place (i.e., without creating a new array).
+
+```
+const randomInPlace = arr => {
+  let i = 0;
+  let randomInt;
+  while ( i < arr.length){
+    randomInt = Math.floor(Math.random() * Math.floor(arr.length));
+    swap(arr,i, randomInt);
+    i++;
+  }
+  return arr;
+};
+```
 
 ### part 8: Sorting books
 Imagine that I gave you 20 books to sort in alphabetical order. Express this as an algorithm and then implement your algorithm.
 
 to start you you would want to split into 3 piles [a -> l] [m - > s] [t -> z]
 get all a's, sort based on the 1st 3 letter (more is needed) and so on
+

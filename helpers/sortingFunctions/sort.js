@@ -89,4 +89,5 @@ module.exports ={
   bubbleSort,
   mergeSort,
   quickSort,
+  swap,
 }; 

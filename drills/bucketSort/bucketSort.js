@@ -1,5 +1,4 @@
 const {STORE} = require('../../helpers/store/store');
-const HashMap = require('../../helpers/HashMap/hashmap');
 
 const {log, largeIntArray} = STORE;
 
@@ -20,7 +19,7 @@ const bucketSearch = (arr , min, max) =>{
       numMap.set(arr[i], numMap.get(arr[i])+1);
     }
   }
-  
+
   let arrI = 0;
   for (let i = min; i <= max; i++) {
     let numAppearing = numMap.get(i);
