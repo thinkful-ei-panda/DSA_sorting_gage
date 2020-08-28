@@ -1,5 +1,5 @@
 const {STORE} = require('../../helpers/store/store');
-const { swap, quickSort} = require('../../helpers/sortingFunctions/sort');
+const {quickSort} = require('../../helpers/sortingFunctions/sort');
 
 const {log, booksArray} = STORE;
 
