@@ -25,6 +25,26 @@ const STORE = {
     } 
     return nameList.names;
   },
+  booksArray : [
+    'Gone with the Wind',
+    'Pride and Prejudice',
+    'The Hobbit, or There and Back Again',
+    'Wuthering Heights',
+    'Little Women',
+    'A Tale of Two Cities',
+    'The Raven',
+    'The Neverending Story',
+    'The Lion, the Witch and the Wardrobe (Chronicles of Narnia, #1)',
+    'Ballet Shoes',
+    'The Age of Innocence',
+    'The Book Thief',
+    'Beyond Nostalgia',
+    'The Mystery of Edwin Drood',
+    'The Mill on the Floss',
+    'The Family From One End Street',
+    'Fairy Tales Written By Rabbits',
+    'Oliver Twist',
+  ],
 };
 
 module.exports = {STORE};

@@ -279,3 +279,5 @@ Imagine that I gave you 20 books to sort in alphabetical order. Express this as 
 to start you you would want to split into 3 piles [a -> l] [m - > s] [t -> z]
 get all a's, sort based on the 1st 3 letter (more is needed) and so on
 
+or at less that how i use to do it back when i use to be a library page. 
+so i guess a little like quick sorting 
