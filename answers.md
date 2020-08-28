@@ -153,12 +153,15 @@ const mergeSort = arr => {
 
 Given a Linked List, sort the linked list using merge sort. You will need your linked list class from previous lesson to create the list and use all of its supplemental functions to solve this problem.
 
-
 ### part 6: Bucket sort
 Write an O(n) algorithm to sort an array of integers, where you know in advance what the lowest and highest values are. You can't use `arr.splice()`, `shift()` or `unshift()` for this exercise.
+
 
 ### part 7: Sort in place
 Write an algorithm to shuffle an array into a random order in place (i.e., without creating a new array).
 
 ### part 8: Sorting books
 Imagine that I gave you 20 books to sort in alphabetical order. Express this as an algorithm and then implement your algorithm.
+
+to start you you would want to split into 3 piles [a -> l] [m - > s] [t -> z]
+get all a's, sort based on the 1st 3 letter (more is needed) and so on
