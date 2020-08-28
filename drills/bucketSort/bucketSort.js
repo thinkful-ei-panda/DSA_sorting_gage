@@ -10,7 +10,7 @@ must not have shift(), unshift(),slice()
 must be O(n)
  */
 const iWantToDie = intArray =>{
-  const res = [];
+  let res = [];
 
   let  i = 0;
   let ones = [];
@@ -58,6 +58,6 @@ const iWantToDie = intArray =>{
       break;
     } 
   }
-
+  res = [...ones,...tens,...thirty,...forty,...fifty,...sixty,...seventy,...eighty,...ninety];
   return res;
 };
