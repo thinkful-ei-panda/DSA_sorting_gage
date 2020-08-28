@@ -1,5 +1,5 @@
 const {STORE} = require('../../helpers/store/store');
-
+const HashMap = require('../../helpers/HashMap/hashmap');
 
 const {log, largeIntArray} = STORE;
 
@@ -9,55 +9,34 @@ const {log, largeIntArray} = STORE;
 must not have shift(), unshift(),slice()
 must be O(n)
  */
-const iWantToDie = intArray =>{
-  let res = [];
+const bucketSearch = (arr , min, max) =>{
 
-  let  i = 0;
-  let ones = [];
-  let tens = [];
-  let twenty = [];
-  let thirty = [];
-  let forty = [];
-  let fifty   = [];
-  let sixty  = [];
-  let seventy  = [];
-  let eighty  = [];
-  let ninety  = [];
-
-  while(i< intArray.largeIntArray){
-    switch(intArray[i]){
-    case (intArray[i] < 10) :
-      ones.push(intArray[i]);
-      break;
-    case (intArray[i] < 20) :
-      tens.push(intArray[i]);
-      break;
-    case (intArray[i] < 30) :
-      twenty.push(intArray[i]);
-      break;
-    case (intArray[i] < 40) :
-      thirty.push(intArray[i]);
-      break;
-    case (intArray[i] < 50) :
-      forty.push(intArray[i]);
-      break;
-    case (intArray[i] < 60) :
-      fifty.push(intArray[i]);
-      break;
-    case (intArray[i] < 70) :
-      sixty.push(intArray[i]);
-      break;
-    case (intArray[i] < 80) :
-      seventy.push(intArray[i]);
-      break;
-    case (intArray[i] < 90) :
-      eighty.push(intArray[i]);
-      break;
-    case (intArray[i] < 100) :
-      ninety.push(intArray[i]);
-      break;
-    } 
+  const numMap = new Map();
+  for (let i=0; i< arr.length; i++) {
+    if (numMap.get(arr[i]) === undefined) {
+      numMap.set(arr[i], 1);
+    }
+    else {
+      numMap.set(arr[i], numMap.get(arr[i])+1);
+    }
   }
-  res = [...ones,...tens,...thirty,...forty,...fifty,...sixty,...seventy,...eighty,...ninety];
-  return res;
+  
+  let arrI = 0;
+  for (let i = min; i <= max; i++) {
+    let numAppearing = numMap.get(i);
+    while (numAppearing) {
+      arr[arrI] = i;
+      numAppearing--;
+      arrI++;
+    }
+  }
+  return arr;  
+      
 };
+
+
+
+const min = Math.min(...STORE.largeIntArray);
+const max = Math.max(...STORE.largeIntArray);
+
+log(bucketSearch(STORE.largeIntArray,min,max));
